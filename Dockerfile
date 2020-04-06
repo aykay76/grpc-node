@@ -22,13 +22,6 @@ RUN cp -R node_modules prod_node_modules
 RUN npm install
 
 #
-# ---- Test ----
-# run linters, setup and tests
-FROM dependencies AS test
-COPY . .
-RUN  npm run lint && npm run setup && npm run test
-
-#
 # ---- Release ----
 FROM base AS release
 # copy production node_modules
